@@ -1,0 +1,1353 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "The IQ Service is used to prescribe the security tools to run for\\\n a project configured in IO",
+    "version" : "",
+    "title" : "IO-IQ Rest v1 APIs",
+    "termsOfService" : "Terms of service",
+    "contact" : {
+      "name" : "Synopsys, Inc.",
+      "url" : "http://synopsys.com",
+      "email" : ""
+    },
+    "license" : {
+      "name" : "Synopsys License"
+    }
+  },
+  "basePath" : "/api/ioiq/io/api/v1",
+  "tags" : [ {
+    "name" : "tokens"
+  }, {
+    "name" : "users"
+  } ],
+  "security" : [ {
+    "apiKey" : [ ],
+    "BasicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/users" : {
+      "get" : {
+        "tags" : [ "users" ],
+        "description" : "Returns the collection of type users",
+        "consumes" : [ "application/vnd.api+json" ],
+        "produces" : [ "application/vnd.api+json" ],
+        "parameters" : [ {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorts the collection on the selected attributes.  A prefix of '-' sorts descending",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "automated", "-automated", "confirmPassword", "-confirmPassword", "email", "-email", "enabled", "-enabled", "name", "-name", "password", "-password", "userName", "-userName", "id", "-id" ]
+          },
+          "collectionFormat" : "csv"
+        }, {
+          "name" : "fields[users]",
+          "in" : "query",
+          "description" : "Selects the set of users fields that should be returned in the result.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "automated", "confirmPassword", "createdDate", "email", "enabled", "ipWhitelist", "name", "password", "role", "updatedDate", "userName", "tokens" ]
+          },
+          "collectionFormat" : "csv"
+        }, {
+          "name" : "include",
+          "in" : "query",
+          "description" : "Selects the set of relationships that should be expanded as a compound document in the result.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "tokens" ]
+          },
+          "collectionFormat" : "csv"
+        }, {
+          "name" : "filter[users]",
+          "in" : "query",
+          "description" : "Filters the collection of users using a 'disjoint' RSQL expression",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "Filters the collection of users using a 'joined' RSQL expression",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][prefix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator prefix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][prefix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator prefix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][prefix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator prefix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][prefix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator prefix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][prefix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator prefix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][prefix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator prefix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][prefix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator prefix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][not]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][not]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][not]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][not]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][not]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][not]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][not]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][ge]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator ge",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][ge]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator ge",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][ge]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator ge",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][ge]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator ge",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][ge]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator ge",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][ge]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator ge",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][ge]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator ge",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][lt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator lt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][lt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator lt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][lt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator lt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][lt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator lt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][lt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator lt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][lt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator lt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][lt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator lt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][isnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator isnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][isnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator isnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][isnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator isnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][isnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator isnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][isnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator isnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][isnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator isnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][isnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator isnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][in]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator in",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][in]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator in",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][in]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator in",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][in]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator in",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][in]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator in",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][in]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator in",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][in]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator in",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][le]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator le",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][le]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator le",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][le]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator le",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][le]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator le",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][le]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator le",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][le]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator le",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][le]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator le",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][infix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator infix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][infix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator infix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][infix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator infix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][infix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator infix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][infix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator infix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][infix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator infix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][infix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator infix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][postfix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator postfix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][postfix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator postfix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][postfix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator postfix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][postfix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator postfix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][postfix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator postfix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][postfix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator postfix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][postfix]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator postfix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][gt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator gt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][gt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator gt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][gt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator gt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][gt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator gt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][gt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator gt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][gt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator gt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][gt]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator gt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.automated][notnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute automated using the operator notnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.confirmPassword][notnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute confirmPassword using the operator notnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.email][notnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute email using the operator notnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.enabled][notnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute enabled using the operator notnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.name][notnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute name using the operator notnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.password][notnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute password using the operator notnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[users.userName][notnull]",
+          "in" : "query",
+          "description" : "Filters the collection of users by the attribute userName using the operator notnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page[number]",
+          "in" : "query",
+          "description" : "Number of pages to return.  Can be used with page[size]",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page[size]",
+          "in" : "query",
+          "description" : "Number of elements per page.  Can be used with page[number]",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page[offset]",
+          "in" : "query",
+          "description" : "Offset from 0 to start paginating.  Can be used with page[limit]",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page[limit]",
+          "in" : "query",
+          "description" : "Maximum number of items to return.  Can be used with page[offset]",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page[totals]",
+          "in" : "query",
+          "description" : "For requesting total pages/records be included in the response page meta data",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "data" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/definitions/users"
+                  }
+                },
+                "included" : {
+                  "type" : "array",
+                  "description" : "Included resources",
+                  "uniqueItems" : true,
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "attributes" : {
+                        "type" : "object"
+                      },
+                      "id" : {
+                        "type" : "string"
+                      },
+                      "relationships" : {
+                        "type" : "object"
+                      },
+                      "type" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "users" ],
+        "description" : "Creates an item of type users",
+        "consumes" : [ "application/vnd.api+json" ],
+        "produces" : [ "application/vnd.api+json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "users",
+          "required" : false,
+          "schema" : {
+            "properties" : {
+              "data" : {
+                "$ref" : "#/definitions/users"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "data" : {
+                  "$ref" : "#/definitions/users"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{usersId}" : {
+      "get" : {
+        "tags" : [ "users" ],
+        "description" : "Returns an instance of type users",
+        "consumes" : [ "application/vnd.api+json" ],
+        "produces" : [ "application/vnd.api+json" ],
+        "parameters" : [ {
+          "name" : "fields[users]",
+          "in" : "query",
+          "description" : "Selects the set of users fields that should be returned in the result.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "automated", "confirmPassword", "createdDate", "email", "enabled", "ipWhitelist", "name", "password", "role", "updatedDate", "userName", "tokens" ]
+          },
+          "collectionFormat" : "csv"
+        }, {
+          "name" : "include",
+          "in" : "query",
+          "description" : "Selects the set of relationships that should be expanded as a compound document in the result.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "tokens" ]
+          },
+          "collectionFormat" : "csv"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "data" : {
+                  "$ref" : "#/definitions/users"
+                },
+                "included" : {
+                  "type" : "array",
+                  "description" : "Included resources",
+                  "uniqueItems" : true,
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "attributes" : {
+                        "type" : "object"
+                      },
+                      "id" : {
+                        "type" : "string"
+                      },
+                      "relationships" : {
+                        "type" : "object"
+                      },
+                      "type" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "users" ],
+        "description" : "Modifies an instance of type users",
+        "consumes" : [ "application/vnd.api+json" ],
+        "produces" : [ "application/vnd.api+json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "users",
+          "required" : false,
+          "schema" : {
+            "properties" : {
+              "data" : {
+                "$ref" : "#/definitions/users"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "Successful response"
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "usersId",
+        "in" : "path",
+        "description" : "users Identifier",
+        "required" : true,
+        "type" : "string"
+      } ]
+    },
+    "/users/{usersId}/tokens" : {
+      "get" : {
+        "tags" : [ "tokens" ],
+        "description" : "Returns the relationship tokens",
+        "consumes" : [ "application/vnd.api+json" ],
+        "produces" : [ "application/vnd.api+json" ],
+        "parameters" : [ {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sorts the collection on the selected attributes.  A prefix of '-' sorts descending",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "name", "-name", "revoked", "-revoked", "token", "-token", "id", "-id" ]
+          },
+          "collectionFormat" : "csv"
+        }, {
+          "name" : "fields[tokens]",
+          "in" : "query",
+          "description" : "Selects the set of tokens fields that should be returned in the result.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "issuedDate", "name", "revoked", "token", "user" ]
+          },
+          "collectionFormat" : "csv"
+        }, {
+          "name" : "include",
+          "in" : "query",
+          "description" : "Selects the set of relationships that should be expanded as a compound document in the result.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "user" ]
+          },
+          "collectionFormat" : "csv"
+        }, {
+          "name" : "filter[tokens]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens using a 'disjoint' RSQL expression",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][prefix]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator prefix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][prefix]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator prefix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][prefix]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator prefix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][not]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][not]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][not]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator not",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][ge]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator ge",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][ge]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator ge",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][ge]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator ge",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][lt]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator lt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][lt]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator lt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][lt]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator lt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][isnull]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator isnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][isnull]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator isnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][isnull]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator isnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][in]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator in",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][in]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator in",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][in]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator in",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][le]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator le",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][le]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator le",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][le]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator le",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][infix]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator infix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][infix]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator infix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][infix]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator infix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][postfix]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator postfix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][postfix]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator postfix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][postfix]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator postfix",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][gt]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator gt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][gt]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator gt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][gt]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator gt",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.name][notnull]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute name using the operator notnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.revoked][notnull]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute revoked using the operator notnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "filter[tokens.token][notnull]",
+          "in" : "query",
+          "description" : "Filters the collection of tokens by the attribute token using the operator notnull",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page[number]",
+          "in" : "query",
+          "description" : "Number of pages to return.  Can be used with page[size]",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page[size]",
+          "in" : "query",
+          "description" : "Number of elements per page.  Can be used with page[number]",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page[offset]",
+          "in" : "query",
+          "description" : "Offset from 0 to start paginating.  Can be used with page[limit]",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page[limit]",
+          "in" : "query",
+          "description" : "Maximum number of items to return.  Can be used with page[offset]",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page[totals]",
+          "in" : "query",
+          "description" : "For requesting total pages/records be included in the response page meta data",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "data" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/definitions/tokens"
+                  }
+                },
+                "included" : {
+                  "type" : "array",
+                  "description" : "Included resources",
+                  "uniqueItems" : true,
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "attributes" : {
+                        "type" : "object"
+                      },
+                      "id" : {
+                        "type" : "string"
+                      },
+                      "relationships" : {
+                        "type" : "object"
+                      },
+                      "type" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "tokens" ],
+        "description" : "Creates an item of type tokens and adds it to tokens",
+        "consumes" : [ "application/vnd.api+json" ],
+        "produces" : [ "application/vnd.api+json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "tokens",
+          "required" : false,
+          "schema" : {
+            "properties" : {
+              "data" : {
+                "$ref" : "#/definitions/tokens"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "data" : {
+                  "$ref" : "#/definitions/tokens"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "usersId",
+        "in" : "path",
+        "description" : "users Identifier",
+        "required" : true,
+        "type" : "string"
+      } ]
+    },
+    "/users/{usersId}/tokens/{tokensId}" : {
+      "get" : {
+        "tags" : [ "tokens" ],
+        "description" : "Returns an instance of type tokens",
+        "consumes" : [ "application/vnd.api+json" ],
+        "produces" : [ "application/vnd.api+json" ],
+        "parameters" : [ {
+          "name" : "fields[tokens]",
+          "in" : "query",
+          "description" : "Selects the set of tokens fields that should be returned in the result.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "issuedDate", "name", "revoked", "token", "user" ]
+          },
+          "collectionFormat" : "csv"
+        }, {
+          "name" : "include",
+          "in" : "query",
+          "description" : "Selects the set of relationships that should be expanded as a compound document in the result.",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "user" ]
+          },
+          "collectionFormat" : "csv"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "data" : {
+                  "$ref" : "#/definitions/tokens"
+                },
+                "included" : {
+                  "type" : "array",
+                  "description" : "Included resources",
+                  "uniqueItems" : true,
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "attributes" : {
+                        "type" : "object"
+                      },
+                      "id" : {
+                        "type" : "string"
+                      },
+                      "relationships" : {
+                        "type" : "object"
+                      },
+                      "type" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "tokens" ],
+        "description" : "Modifies an instance of type tokens",
+        "consumes" : [ "application/vnd.api+json" ],
+        "produces" : [ "application/vnd.api+json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "tokens",
+          "required" : false,
+          "schema" : {
+            "properties" : {
+              "data" : {
+                "$ref" : "#/definitions/tokens"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "Successful response"
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "usersId",
+        "in" : "path",
+        "description" : "users Identifier",
+        "required" : true,
+        "type" : "string"
+      }, {
+        "name" : "tokensId",
+        "in" : "path",
+        "description" : "tokens Identifier",
+        "required" : true,
+        "type" : "string"
+      } ]
+    },
+    "/users/{usersId}/relationships/tokens" : {
+      "parameters" : [ {
+        "name" : "usersId",
+        "in" : "path",
+        "description" : "users Identifier",
+        "required" : true,
+        "type" : "string"
+      } ]
+    }
+  },
+  "securityDefinitions" : {
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
+    },
+    "BasicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "tokens" : {
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "Create Permissions : (user can only create their token)\nDelete Permissions : (no one can delete the token)"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "attributes" : {
+          "type" : "object",
+          "properties" : {
+            "issuedDate" : {
+              "type" : "string",
+              "format" : "date-time",
+              "description" : "token issued date\nUpdate Permissions : (user can only update their token)"
+            },
+            "name" : {
+              "type" : "string",
+              "description" : "name of the token\nUpdate Permissions : (user can only update their token)"
+            },
+            "revoked" : {
+              "type" : "boolean",
+              "description" : "defines whether the token is revoked or not. Default value is false while creation of token\nUpdate Permissions : (user can only update their token)"
+            },
+            "token" : {
+              "type" : "string",
+              "description" : "access token which is exposed only once when you create a token\nUpdate Permissions : (user can only update their token)"
+            }
+          },
+          "required" : [ "name" ]
+        },
+        "relationships" : {
+          "type" : "object",
+          "properties" : {
+            "user" : {
+              "type" : "object",
+              "description" : "Update Permissions : (user can only update their token)",
+              "properties" : {
+                "id" : {
+                  "type" : "string"
+                },
+                "type" : {
+                  "type" : "string",
+                  "enum" : [ "users" ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "users" : {
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "Create Permissions : (only admin can create user)\nDelete Permissions : (no one can delete users)"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "attributes" : {
+          "type" : "object",
+          "properties" : {
+            "automated" : {
+              "type" : "boolean",
+              "description" : "automated defines whether the user is service account or not. Default is false while creating user\nRead Permissions : (only admin can fetch all users)\nUpdate Permissions : (user should be admin)"
+            },
+            "confirmPassword" : {
+              "type" : "string",
+              "description" : "Read Permissions : (only admin can fetch all users)\nUpdate Permissions : (user should be admin)"
+            },
+            "createdDate" : {
+              "type" : "string",
+              "format" : "date-time",
+              "description" : "Read Permissions : (only admin can fetch all users)\nUpdate Permissions : (only admin can update other users)"
+            },
+            "email" : {
+              "type" : "string",
+              "description" : "Read Permissions : (only admin can fetch all users)\nUpdate Permissions : (only admin can update other users)"
+            },
+            "enabled" : {
+              "type" : "boolean",
+              "description" : "enabled defines whether the user is enabled or disabled. Default is true while creating user\nRead Permissions : (only admin can fetch all users)\nUpdate Permissions : (user should be admin)"
+            },
+            "ipWhitelist" : {
+              "type" : "array",
+              "description" : "ipWhitelist is for service accounts to whitelist IPs\nRead Permissions : (only admin can fetch all users)\nUpdate Permissions : (only admin can update other users)",
+              "uniqueItems" : true,
+              "items" : {
+                "type" : "object"
+              }
+            },
+            "name" : {
+              "type" : "string",
+              "description" : "name of the user\nRead Permissions : (only admin can fetch all users)\nUpdate Permissions : (only admin can update other users)"
+            },
+            "password" : {
+              "type" : "string",
+              "description" : "Read Permissions : (only admin can fetch all users)\nUpdate Permissions : (user should be admin)"
+            },
+            "role" : {
+              "type" : "string",
+              "description" : "role of the user. Valid Roles ADMIN, DEVELOPER\nRead Permissions : (only admin can fetch all users)\nUpdate Permissions : (user should be admin)",
+              "enum" : [ "ADMIN", "DEVELOPER" ]
+            },
+            "updatedDate" : {
+              "type" : "string",
+              "format" : "date-time",
+              "description" : "Read Permissions : (only admin can fetch all users)\nUpdate Permissions : (only admin can update other users)"
+            },
+            "userName" : {
+              "type" : "string",
+              "description" : "username of the user\nRead Permissions : (only admin can fetch all users)\nUpdate Permissions : (only admin can update other users)"
+            }
+          },
+          "required" : [ "confirmPassword", "name", "password", "role", "userName" ]
+        },
+        "relationships" : {
+          "type" : "object",
+          "properties" : {
+            "tokens" : {
+              "type" : "object",
+              "description" : "Read Permissions : (only admin can fetch all users)\nUpdate Permissions : (only admin can update other users)",
+              "properties" : {
+                "id" : {
+                  "type" : "string"
+                },
+                "type" : {
+                  "type" : "string",
+                  "enum" : [ "tokens" ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
